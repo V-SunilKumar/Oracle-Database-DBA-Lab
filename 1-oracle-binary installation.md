@@ -1,4 +1,4 @@
-# 1. The main ways to install Oracle 19c binaries
+# The main ways to install Oracle 19c binaries
 
 ```
 Method 1 - GUI installation (interactive)
