@@ -1,1 +1,6 @@
-Silent installation
+
+# Method 2 — Silent installation using a response file
+Supply configuration values in a .rsp file and run runInstaller -silent.
+- No graphical interface required.
+- Repeatable and suitable for automation.
+- Excellent DBA practice for building multiple lab.
