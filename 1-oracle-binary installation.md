@@ -30,4 +30,7 @@ Prepare a reusable Oracle Home image and use it to deploy the software to anothe
 - Useful when building multiple Oracle VMs.
 - Reduces repeated preparation work.
 - Requires careful control of patches, configuration, and compatibility.
+
+Method 5 - RPM-based installation from oracle 26ai.
+Oracle's 26ai preinstallation RPM is a separate package that configures operating-system prerequisites. It is not the database software itself.
 ```
