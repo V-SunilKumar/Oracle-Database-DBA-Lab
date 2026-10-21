@@ -964,7 +964,20 @@ SQL> SQL>
          2 PDB$SEED                       READ ONLY  NO
          3 ORCLPDB1                       READ WRITE NO
 SQL>
-SQL>
+SQL>SQL> ALTER PLUGGABLE DATABASE ORCLPDB1 SAVE STATE;
+
+Pluggable database altered.
+
+SQL> SELECT con_name, state
+FROM dba_pdb_saved_states;  2
+
+CON_NAME
+--------------------------------------------------------------------------------
+STATE
+--------------
+ORCLPDB1
+OPEN
+
 SQL> EXIT;
 Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
 Version 19.26.0.0.0
