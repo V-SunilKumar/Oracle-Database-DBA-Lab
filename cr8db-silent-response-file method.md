@@ -983,4 +983,37 @@ Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Pr
 Version 19.26.0.0.0
 [svanapal@orion9 ~]$
 
+[svanapal@orion9 ~]$ lsnrctl status LISTENER
+
+LSNRCTL for Linux: Version 19.0.0.0.0 - Production on 21-OCT-2026 10:18:57
+
+Copyright (c) 1991, 2024, Oracle.  All rights reserved.
+
+Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=orion9.sunilit.org)(PORT=1521)))
+STATUS of the LISTENER
+------------------------
+Alias                     LISTENER
+Version                   TNSLSNR for Linux: Version 19.0.0.0.0 - Production
+Start Date                20-OCT-2026 07:59:59
+Uptime                    1 days 2 hr. 18 min. 59 sec
+Trace Level               off
+Security                  ON: Local OS Authentication
+SNMP                      OFF
+Listener Parameter File   /u01/app/oracle/product/19.0.0/dbhome_1/network/admin/listener.ora
+Listener Log File         /u01/app/oracle/diag/tnslsnr/orion9/listener/alert/log.xml
+Listening Endpoints Summary...
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=orion9.sunilit.org)(PORT=1521)))
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
+Services Summary...
+Service "5e52ac062ec719ede0635101a8c062f3" has 1 instance(s).
+  Instance "orcl", status READY, has 1 handler(s) for this service...
+Service "ORCL" has 1 instance(s).
+  Instance "orcl", status READY, has 1 handler(s) for this service...
+Service "orclXDB" has 1 instance(s).
+  Instance "orcl", status READY, has 1 handler(s) for this service...
+Service "orclpdb1" has 1 instance(s).
+  Instance "orcl", status READY, has 1 handler(s) for this service...
+The command completed successfully
+[svanapal@orion9 ~]$
+[svanapal@orion9 ~]$
 
