@@ -308,3 +308,123 @@ Set DISPLAY environment variable, then re-run.
 
 Verify the Oracle environment
 As svanapal, run these commands:
+[svanapal@orion9 ~]$ echo "===== ORACLE HOME ====="
+echo "$ORACLE_HOME"
+
+echo "===== ORACLE SID ====="
+echo "$ORACLE_SID"
+
+echo "===== DBCA VERSION ====="
+dbca -version
+
+echo "===== DBCA DELETE OPTIONS ====="
+dbca -help | grep -A 15 -B 3 -i deleteDatabase
+===== ORACLE HOME =====
+/u01/app/oracle/product/19.0.0/dbhome_1
+===== ORACLE SID =====
+orcl
+===== DBCA VERSION =====
+DISPLAY not set.
+Set DISPLAY environment variable, then re-run.
+===== DBCA DELETE OPTIONS =====
+        -createPluggableDatabase - Command to Create a pluggable database.
+        -createTemplateFromDB - Command to Create a template from an existing database.
+        -createTemplateFromTemplate - Command to Create a template from an existing template.
+        -deleteDatabase - Command to Delete a database.
+        -deleteInstance - Command to Delete an instance from an admin managed cluster database.
+        -deletePluggableDatabase - Command to Delete a pluggable database.
+        -deleteTemplate - Command to delete a template.
+        -executePrereqs - Command to execute prerequisite checks.
+        -generateScripts - Command to Generate scripts which can be used to create database.
+        -relocatePDB - Command to Relocate a pluggable database.
+        -unplugDatabase - Command to Unplug a pluggable database.
+
+
+[svanapal@orion9 ~]$
+export ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1
+export PATH=$ORACLE_HOME/bin:$PATH
+
+[svanapal@orion9 ~]$ dbca -silent -deleteDatabase -sourceDB orcl
+Enter SYS user password:
+
+[WARNING] [DBT-19202] The Database Configuration Assistant will delete the Oracle instances and datafiles for your database. All information in the database will be destroyed.
+Prepare for db operation
+32% complete
+Connecting to database
+35% complete
+39% complete
+42% complete
+45% complete
+48% complete
+52% complete
+65% complete
+Updating network configuration files
+68% complete
+Deleting instance and datafiles
+84% complete
+100% complete
+Database deletion completed.
+Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/ORCL/ORCL0.log" for further details.
+[svanapal@orion9 ~]$
+
+Verify database decommissioning
+[svanapal@orion9 ~]$ echo "===== 1. ORACLE INSTANCE PROCESSES ====="
+ps -ef | grep '[o]ra_pmon_'
+
+echo "===== 2. ORATAB DATABASE ENTRIES ====="
+cat /etc/oratab
+
+echo "===== 3. DBCA DELETION LOG ====="
+tail -40 /u01/app/oracle/cfgtoollogs/dbca/ORCL/ORCL0.log
+
+echo "===== 4. ORACLE HOME ====="
+echo "$ORACLE_HOME"
+ls -ld "$ORACLE_HOME"
+===== 1. ORACLE INSTANCE PROCESSES =====
+===== 2. ORATAB DATABASE ENTRIES =====
+#
+
+
+
+# This file is used by ORACLE utilities.  It is created by root.sh
+# and updated by either Database Configuration Assistant while creating
+# a database or ASM Configuration Assistant while creating ASM instance.
+
+# A colon, ':', is used as the field terminator.  A new line terminates
+# the entry.  Lines beginning with a pound sign, '#', are comments.
+#
+# Entries are of the form:
+#   $ORACLE_SID:$ORACLE_HOME:<N|Y>:
+#
+# The first and second fields are the system identifier and home
+# directory of the database respectively.  The third field indicates
+# to the dbstart utility that the database should , "Y", or should not,
+# "N", be brought up at system boot time.
+#
+# Multiple entries with the same $ORACLE_SID are not allowed.
+#
+#
+===== 3. DBCA DELETION LOG =====
+[ 2026-10-21 10:52:35.862 IST ] [WARNING] [DBT-19202] The Database Configuration Assistant will delete the Oracle instances and datafiles for your database. All information in the database will be destroyed.
+[ 2026-10-21 10:52:36.100 IST ] Prepare for db operation
+DBCA_PROGRESS : 32%
+[ 2026-10-21 10:52:36.226 IST ] Connecting to database
+DBCA_PROGRESS : 35%
+DBCA_PROGRESS : 39%
+DBCA_PROGRESS : 42%
+DBCA_PROGRESS : 45%
+DBCA_PROGRESS : 48%
+DBCA_PROGRESS : 52%
+DBCA_PROGRESS : 65%
+[ 2026-10-21 10:53:44.098 IST ] Updating network configuration files
+DBCA_PROGRESS : 68%
+[ 2026-10-21 10:53:44.117 IST ] Deleting instance and datafiles
+DBCA_PROGRESS : 84%
+DBCA_PROGRESS : 100%
+[ 2026-10-21 10:53:44.272 IST ] Database deletion completed.
+===== 4. ORACLE HOME =====
+/u01/app/oracle/product/19.0.0/dbhome_1
+drwxrwxr-x. 73 svanapal oinstall 4096 Oct 20 07:59 /u01/app/oracle/product/19.0.0/dbhome_1
+[svanapal@orion9 ~]$
+[svanapal@orion9 ~]$
+
