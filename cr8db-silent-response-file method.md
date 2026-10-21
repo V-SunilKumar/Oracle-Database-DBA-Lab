@@ -807,4 +807,167 @@ Enter PDB admin password:
 Prepare for db operation
 8% complete
 Copying database files
+31% complete
+Creating and starting Oracle instance
+32% complete
+36% complete
+40% complete
+43% complete
+46% complete
+Completing Database Creation
+51% complete
+53% complete
+54% complete
+Creating Pluggable Databases
+58% complete
+77% complete
+Executing Post Configuration Actions
+100% complete
+Database creation complete. For details check the logfiles at:
+ /u01/app/oracle/cfgtoollogs/dbca/ORCL.
+Database Information:
+Global Database Name:ORCL
+System Identifier(SID):orcl
+Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/ORCL/ORCL.log" for further details.
+DBCA exit code: 0
+[svanapal@orion9 ~]$
+
+
+Verify the database and PDB:
+[svanapal@orion9 ~]$ export ORACLE_BASE=/u01/app/oracle
+export ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1
+export ORACLE_SID=orcl
+export PATH="$ORACLE_HOME/bin:$PATH"
+
+sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Oct 21 10:16:31 2026
+Version 19.26.0.0.0
+
+Copyright (c) 1982, 2024, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.26.0.0.0
+
+SQL> SELECT instance_name, status, database_status
+FROM v$instance;
+
+SELECT name, open_mode, cdb
+FROM v$database;
+
+SHOW PDBS;  2
+INSTANCE_NAME    STATUS       DATABASE_STATUS
+---------------- ------------ -----------------
+orcl             OPEN         ACTIVE
+
+SQL> SQL>   2
+NAME      OPEN_MODE            CDB
+--------- -------------------- ---
+ORCL      READ WRITE           YES
+
+SQL> SQL>
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 ORCLPDB1                       READ WRITE NO
+SQL>
+SQL>
+SQL> EXIT;
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.26.0.0.0
+[svanapal@orion9 ~]$
+[svanapal@orion9 ~]$ export ORACLE_BASE=/u01/app/oracle
+export ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1
+export ORACLE_SID=orcl
+export PATH="$ORACLE_HOME/bin:$PATH"
+
+sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Oct 21 10:16:31 2026
+Version 19.26.0.0.0
+
+Copyright (c) 1982, 2024, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.26.0.0.0
+
+SQL> SELECT instance_name, status, database_status
+FROM v$instance;
+
+SELECT name, open_mode, cdb
+FROM v$database;
+
+SHOW PDBS;  2
+INSTANCE_NAME    STATUS       DATABASE_STATUS
+---------------- ------------ -----------------
+orcl             OPEN         ACTIVE
+
+SQL> SQL>   2
+NAME      OPEN_MODE            CDB
+--------- -------------------- ---
+ORCL      READ WRITE           YES
+
+SQL> SQL>
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 ORCLPDB1                       READ WRITE NO
+SQL>
+SQL>
+SQL> EXIT;
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.26.0.0.0
+[svanapal@orion9 ~]$
+[svanapal@orion9 ~]$ export ORACLE_BASE=/u01/app/oracle
+export ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1
+export ORACLE_SID=orcl
+export PATH="$ORACLE_HOME/bin:$PATH"
+
+sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Oct 21 10:16:31 2026
+Version 19.26.0.0.0
+
+Copyright (c) 1982, 2024, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.26.0.0.0
+
+SQL> SELECT instance_name, status, database_status
+FROM v$instance;
+
+SELECT name, open_mode, cdb
+FROM v$database;
+
+SHOW PDBS;  2
+INSTANCE_NAME    STATUS       DATABASE_STATUS
+---------------- ------------ -----------------
+orcl             OPEN         ACTIVE
+
+SQL> SQL>   2
+NAME      OPEN_MODE            CDB
+--------- -------------------- ---
+ORCL      READ WRITE           YES
+
+SQL> SQL>
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 ORCLPDB1                       READ WRITE NO
+SQL>
+SQL>
+SQL> EXIT;
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.26.0.0.0
+[svanapal@orion9 ~]$
+
 
