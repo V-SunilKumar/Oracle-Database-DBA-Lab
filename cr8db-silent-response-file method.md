@@ -1017,3 +1017,44 @@ The command completed successfully
 [svanapal@orion9 ~]$
 [svanapal@orion9 ~]$
 
+[svanapal@orion9 ~]$ sqlplus  system@//orion9.sunilit.org:1521/orclpdb1
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Oct 21 10:19:59 2026
+Version 19.26.0.0.0
+
+Copyright (c) 1982, 2024, Oracle.  All rights reserved.
+
+Enter password:
+Last Successful login time: Wed Oct 21 2026 09:06:22 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.26.0.0.0
+
+SQL> show user
+USER is "SYSTEM"
+SQL>
+SQL> SELECT
+    SYS_CONTEXT('USERENV', 'DB_NAME') AS DB_NAME,
+    SYS_CONTEXT('USERENV', 'CON_NAME') AS CON_NAME
+FROM dual;  2    3    4
+
+DB_NAME
+--------------------------------------------------------------------------------
+CON_NAME
+--------------------------------------------------------------------------------
+ORCLPDB1
+ORCLPDB1
+
+
+SQL>
+SQL> SHOW USER;
+USER is "SYSTEM"
+
+SQL> SELECT SYS_CONTEXT('USERENV', 'SERVICE_NAME') AS SERVICE_NAME
+FROM dual;
+
+SERVICE_NAME
+--------------------------------------------------------------------------------
+orclpdb1
+
